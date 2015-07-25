@@ -18,6 +18,7 @@ def generate_tests():
     for language in languages:
         # Create a new list to pop from
         checklist = copy.copy(control_words)
+        random.shuffle(swear_words)
         for word in swear_words:
             test = {'language': language, 'token': token, 'word': word}
             # Pick three random control words.
