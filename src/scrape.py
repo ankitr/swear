@@ -39,7 +39,8 @@ def scrape_text():
         as dictionary_store:
         # Python 2 bug where ensure_ascii occasionally passes type str doesn't
         # allow up to use json.dump :-(
-        data = json.dumps(dictionary, ensure_ascii=False, encoding='utf8')
+        data = json.dumps(dictionary, ensure_ascii=False, encoding='utf8',
+                          indent=4, sort_keys=True)
         dictionary_store.write(unicode(data))
 
 def get_audio():

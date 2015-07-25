@@ -42,7 +42,7 @@ def generate_tests():
             tests.append(test)
             token += 1
     with open('data/test-answers.json', 'w') as answers:
-        json.dump(tests, answers)
+        json.dump(tests, answers, indent=4, sort_keys=True)
 
 
 def _mkdirp(directory):
