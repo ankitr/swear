@@ -17,13 +17,15 @@ english_control_words = ['pass', 'important', 'mitten', 'bottle', 'romantic',
 
 english_words = english_swear_words + english_control_words
 
+# Bengali and Javanese audio are broken.
+
 target_language_map = {
     'arabic': 'ar',
-    'bengali': 'bn',
+    #'bengali': 'bn',
     'english': 'en-us',
     'hindi': 'hi',
     'japanese': 'ja',
-    'javanese': 'jw',
+    #'javanese': 'jw',
     'mandarin': 'zh-CN',
     'portuguese': 'pt',
     'russian': 'ru',
