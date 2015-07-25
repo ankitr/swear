@@ -1,5 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-rm -rf tests/
-rm data/test-answers.json
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )"
+
+rm -rf "$BASEDIR/../tests/"
+rm "$BASEDIR/../data/test-answers.json"

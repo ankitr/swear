@@ -1,4 +1,6 @@
 #!/bin/bash
 set -eo pipefail
 
-zip -r testpackage.zip tests
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )"
+
+zip -r "$BASEDIR/../testpackage.zip" "$BASEDIR/../tests"
