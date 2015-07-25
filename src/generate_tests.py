@@ -41,7 +41,6 @@ def generate_tests():
                 shutil.copyfile(source_path, destination_path)
             tests.append(test)
             token += 1
-    print(tests)
     with open('data/test-answers.json', 'w') as answers:
         json.dump(tests, answers)
 
