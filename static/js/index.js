@@ -14,7 +14,10 @@ document.querySelector('button').addEventListener('click', function() {
 });
 
 firebase.auth().getRedirectResult().then(function(result) {
-  window.location = '/quiz';
+  console.log(result);
+  if (result.user) {
+    window.location = '/quiz';
+  }
 }).catch(function(error) {
   //TODO(ankitr): pick something prettier than an alert
   alert('You need to be logged into Facebook to take this quiz.');
