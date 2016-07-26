@@ -10,6 +10,8 @@ from words import target_languages as languages
 from words import english_swear_words as swear_words
 from words import english_control_words as control_words
 
+basedir = os.path.dirname(os.path.abspath(__file__)) + '/..'
+
 def generate_tests():
     assert len(control_words) >= len(swear_words) * 3
     token = 0
@@ -31,17 +33,17 @@ def generate_tests():
             random.shuffle(test_words)
             test['valid_index'] = test_words.index(word)
             # Make the directory to store the files.
-            _mkdirp('tests/%s-%s' % (language, token))
+            _mkdirp(basedir + '/static/tests/%s/%s' % (language, token))
             # Copy the files in.
             for audio in test_words:
-                source_path = 'data/audio/%s/%s/%s.mp3' % \
+                source_path = basedir + '/data/audio/%s/%s/%s.mp3' % \
                     (language, 'explicit' if audio == word else 'control', audio)
-                destination_path = 'tests/%s-%s/%s.mp3' % \
+                destination_path = basedir + '/static/tests/%s/%s/%s.mp3' % \
                     (language, token, test_words.index(audio))
                 shutil.copyfile(source_path, destination_path)
             tests.append(test)
             token += 1
-    with open('data/test-answers.json', 'w') as answers:
+    with open(basedir + '/data/test-answers.json', 'w') as answers:
         json.dump(tests, answers, indent=4, sort_keys=True)
 
 
